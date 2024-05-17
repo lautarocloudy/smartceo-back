@@ -1,7 +1,7 @@
 const { conexion } = require("./BD/conexion");
 const express = require("express");
 const cors = require("cors");
-const fileUpload = require("express-fileupload")
+const fileUpload = require("express-fileupload");
 
 // inicializar app
 console.log("app de node arrancada");
@@ -22,23 +22,22 @@ const corsOptions = {
 
 // configurar cors
 app.use(cors(corsOptions));
+app.options("*", cors(corsOptions)); // Manejar solicitudes preflight globalmente
 
 app.use(fileUpload({
-    useTempFiles : true,
-    tempFileDir : './uploads'
+    useTempFiles: true,
+    tempFileDir: './uploads'
 }));
 
 // convertir body a objeto js
 app.use(express.json());
-app.use(express.urlencoded({extended:true}));
+app.use(express.urlencoded({ extended: true }));
 
+// Importar y usar rutas
 const rutas_usuarios = require('./rutas/usuarios');
 app.use("/api/user", rutas_usuarios);
 
-// Manejar solicitudes OPTIONS
-app.options("/api/user/login", cors(corsOptions));
-
 // crear servidor y escuchar peticiones
-app.listen(puerto, ()=>{
-    console.log("servidor corriendo en el puerto "+puerto);
+app.listen(puerto, () => {
+    console.log("servidor corriendo en el puerto " + puerto);
 });
