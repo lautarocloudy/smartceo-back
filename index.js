@@ -14,8 +14,8 @@ const app = express();
 const puerto = process.env.PORT || 3000;
 
 const corsOptions = {
-  origin: "https://smart-ceo.netlify.app", // Reemplaza con tu dominio frontend
-  methods: "GET,POST,PUT,DELETE,OPTIONS",
+  origin: 'https://smart-ceo.netlify.app', // Reemplaza con tu dominio frontend
+  methods: 'GET,POST,PUT,DELETE,OPTIONS',
   allowedHeaders: ['Origin', 'X-Requested-With', 'Content-Type', 'Accept', 'X-Access-Token', 'Authorization'],
   credentials: true // Habilita las credenciales
 };
