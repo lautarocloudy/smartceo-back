@@ -94,11 +94,29 @@ const editar = (req, res) => {
         })
     })
 }
-
+const buscarPagoPorCuit = async (req, res) => {
+    try {
+      const { cuit } = req.query; // Obtén el cuit de la consulta
+  
+      // Buscar el cliente por cuit
+      const cliente = await Clientes.findOne({ cuit });
+  
+      if (!cliente) {
+        return res.status(404).json({ status: 'error', message: 'Cliente no encontrado' });
+      }
+  
+      // Devolver solo el campo 'pago'
+      return res.json({ status: 'success', pago: cliente.pago });
+    } catch (error) {
+      console.error(error);
+      return res.status(500).json({ status: 'error', message: 'Error en el servidor' });
+    }
+  };
 
 module.exports = {
     crear,
     listar,
     uno,
-    editar
+    editar,
+    buscarPagoPorCuit,
 }
