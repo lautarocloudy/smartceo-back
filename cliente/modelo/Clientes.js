@@ -24,7 +24,20 @@ const ClientesSchema = Schema({
     legajo: { type: String },
     situcion: { type: String },
     tramite: { type: String },
-    pago: { type: Number, enum: [0, 1], default: 1 }
+    pago: { type: Number, enum: [0, 1], default: 1 },
+    usuarios1:{ type: String },
+    pass1:{ type: String },
+    usuarios2:{ type: String },
+    pass2:{ type: String },
+    usuarios3:{ type: String },
+    pass3:{ type: String },
+    usuarios4:{ type: String },
+    pass4:{ type: String },
+    usuarios5:{ type: String },
+    pass5:{ type: String },
+    servicioInternet:{ type: String },
+    ubicacionCarpeta:{ type: String },
+    servidor:{ type: String },
 });
 
 module.exports = model("Cliente", ClientesSchema, "Clientes");
