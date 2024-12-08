@@ -18,7 +18,8 @@ const corsOptions = {
     const allowedOrigins = [
       'https://smart-ceo.netlify.app',  // Dominio de producción
       'http://localhost:3000',          // Localhost para desarrollo
-      'null'                            // Permite el origen 'file://'
+      'null0',
+      'http://127.0.0.1:5173'                            // Permite el origen 'file://'
     ];
     if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
       // Si el origen está en la lista o no hay origen (por ejemplo, en solicitudes 'file://')
@@ -49,10 +50,11 @@ app.use(express.urlencoded({ extended: true }));
 const rutas_usuarios = require('./rutas/usuarios');
 const comprobantes = require("./rutas/Comprobantes")
 const clientes = require('./rutas/Clientes')
+const interaccion = require("./rutas/Interaccion")
 app.use("/api/user", rutas_usuarios);
 app.use('/api/comprobantes', comprobantes);
 app.use('/api/clientes',  clientes);
-
+app.use('/api/interaccion',  interaccion);
 // Crear servidor y escuchar peticiones
 app.listen(puerto, () => {
   console.log("servidor corriendo en el puerto " + puerto);

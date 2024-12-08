@@ -38,6 +38,7 @@ const ClientesSchema = Schema({
     servicioInternet:{ type: String },
     ubicacionCarpeta:{ type: String },
     servidor:{ type: String },
+    estado: { type: String }
 });
 
 module.exports = model("Cliente", ClientesSchema, "Clientes");
