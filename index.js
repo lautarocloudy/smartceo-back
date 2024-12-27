@@ -18,7 +18,7 @@ const corsOptions = {
     const allowedOrigins = [
       'https://smart-ceo.netlify.app',  // Dominio de producción
       'http://localhost:3000',          // Localhost para desarrollo
-      'null0',
+      'null',
       'http://127.0.0.1:5173'                            // Permite el origen 'file://'
     ];
     if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
